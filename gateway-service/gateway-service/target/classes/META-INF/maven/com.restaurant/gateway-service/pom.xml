@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Root element for Maven project configuration -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <!-- Model version for Maven POM -->
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Parent project configuration -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>  <!-- Group ID of the parent project -->
+        <artifactId>spring-boot-starter-parent</artifactId>  <!-- Artifact ID of the parent project -->
+        <version>3.2.5</version>  <!-- Version of the parent project -->
+        <relativePath/> <!-- Lookup parent from repository -->
+    </parent>
+
+    <!-- Group ID for the project -->
+    <groupId>com.restaurant</groupId>
+    <!-- Artifact ID for the project -->
+    <artifactId>gateway-service</artifactId>
+    <!-- Version of the project -->
+    <version>0.0.1-SNAPSHOT</version>
+    <!-- Name of the project -->
+    <name>gateway-service</name>
+    <!-- Description of the project -->
+    <description>This is the core microservice responsible for routing incoming requests to the appropriate backend services. It serves as the entry point to the system, handling API requests and directing them to the relevant downstream services.</description>
+
+    <!-- Project properties -->
+    <properties>
+        <java.version>17</java.version>  <!-- Java version to be used -->
+        <spring-cloud.version>2023.0.1</spring-cloud.version>  <!-- Spring Cloud version to be used -->
+    </properties>
+
+    <!-- Project dependencies -->
+    <dependencies>
+        <!-- Spring Boot Actuator dependency for monitoring and management endpoints -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Spring Cloud Gateway dependency for building the API gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!-- Spring Cloud Netflix Eureka Client dependency for service discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!-- Spring Boot Test Starter dependency for unit and integration testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>  <!-- Scope set to test to include it only during testing -->
+        </dependency>
+    </dependencies>
+
+    <!-- Dependency management section -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Cloud dependencies BOM (Bill of Materials) for managing dependency versions -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>  <!-- Use the Spring Cloud version defined in properties -->
+                <type>pom</type>
+                <scope>import</scope>  <!-- Scope set to import to manage versions of transitive dependencies -->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Build configuration section -->
+    <build>
+        <!-- Plugins configuration -->
+        <plugins>
+            <!-- Spring Boot Maven Plugin for packaging the application as a Spring Boot executable jar -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
