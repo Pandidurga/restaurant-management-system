@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management</title>
+    <link rel="stylesheet" href="css/order-styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Main container for the restaurant management system -->
+    <div class="container">
+        <!-- Header section -->
+        <h1>Restaurant Management</h1>
+        
+        <!-- Layout section for menu, tables, and order form -->
+        <div class="layout">
+            <!-- Menu and tables section -->
+            <div class="menu-tables">
+                <!-- Side menu section -->
+                <div class="side-menu">
+                    <h2>Available Menu Items</h2>
+                    <!-- Table to display available menu items -->
+                    <table id="menu-items-table">
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Menu items will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+
+                    <h2>Vacant Tables</h2>
+                    <!-- Table to display vacant tables -->
+                    <table id="tables-table">
+                        <thead>
+                            <tr>
+                                <th>Table ID</th>
+                                <th>Table Number</th>
+                                <th>Seats</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Tables will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Order form section -->
+            <div class="order-form side-form">
+                <h2>Create New Order</h2>
+                <!-- Form to create a new order -->
+                <form id="order-form">
+                    <label for="table">Select Table:</label>
+                    <!-- Select element to choose a table -->
+                    <select id="table" name="table">
+                        <!-- Tables options will be dynamically inserted here -->
+                    </select>
+                    <!-- Button to create a new order -->
+                    <button type="button" onclick="createOrder()">Create Order</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+        
+        <!-- Section to display list of orders -->
+        <h1><center>LIST OF ORDERS</center></h1>
+        <!-- Table to display orders -->
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Table ID</th>
+                    <th>Status</th>
+                    <th>Total Amount</th>
+                    <th>Date-Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Orders will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="add-item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddItemModal()">&times;</span>
+            <h2>Add Item to Order</h2>
+            <input type="hidden" id="order-id">
+            <!-- Form to add an item to an order -->
+            <form>
+                <label for="menu-item">Select Menu Item:</label>
+                <!-- Select element to choose a menu item -->
+                <select id="menu-item" name="menu-item" class="select2">
+                    <!-- Menu items options will be dynamically inserted here -->
+                </select>
+                <label for="quantity">Quantity:</label>
+                <!-- Input field to specify quantity -->
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <!-- Button to add the item to the order -->
+                <button type="button" onclick="addItemToOrder()">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Order Item Modal -->
+    <div id="edit-order-item-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditOrderItemModal()">&times;</span>
+            <h2>Edit Order Item</h2>
+            <!-- Form to edit an order item -->
+            <form id="edit-order-item-form">
+                <label for="edit-menu-item">Menu Item:</label>
+                <!-- Select element to choose a menu item for editing -->
+                <select id="edit-menu-item" name="edit-menu-item">
+                    <!-- Menu items options will be dynamically inserted here -->
+                </select>
+                <label for="edit-quantity">Quantity:</label>
+                <!-- Input field to edit the quantity -->
+                <input type="number" id="edit-quantity" name="edit-quantity">
+                <!-- Button to update the order item -->
+                <button type="button" onclick="updateOrderItem()">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bill Modal -->
+    <div id="bill-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeBillModal()">&times;</span>
+            <div id="bill-content"></div>
+        </div>
+    </div>
+    <!-- Script for order functionality -->
+    <script src="js/order-script.js"></script>
+</body>
+</html>

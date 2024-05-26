@@ -1,0 +1,128 @@
+/* Global styles */
+/* Set default font family, margin, and padding for the entire document */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles */
+/* Set maximum width, center align, and add padding to the container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading styles */
+/* Center align the heading and add bottom margin */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+/* Make the table take up 100% width and collapse border spacing */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table cell styles */
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Table header styles */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Button styles */
+/* Define button styles */
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Modal styles */
+/* Define modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+/* Modal content styles */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+}
+
+/* Close button styles */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Close button hover and focus styles */
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styles */
+/* Define form styles */
+form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+/* Label styles */
+label {
+    font-weight: bold;
+}
+
+/* Input and select styles */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Additional styles for checkbox */
+input[type="checkbox"] {
+    width: auto;
+}
